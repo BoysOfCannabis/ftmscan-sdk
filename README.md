@@ -1,2 +1,6 @@
 # ftmscan-sdk
-Python wrapper to interact with ftmscan
+An Asynchrounos API Wrapper for python
+
+## Todo
+- [] Teransaction API support
+- [] Initiate documantation
