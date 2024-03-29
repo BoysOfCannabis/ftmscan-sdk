@@ -1,6 +1,6 @@
 import aiohttp
 import abc
-from typing import List
+from typing import List, Optional
 
 Address = str
 class BlockExplorer(abc.ABC):
@@ -13,7 +13,7 @@ class BlockExplorer(abc.ABC):
         
     
 class FTMExplorer(BlockExplorer):
-    def get_transactions(self, address: Address, token: str = None):
+    def get_transactions(self, address: Address, token: Optional[str]):
         """
             Return a list of transactions as dict
             https://docs.ftmscan.com/api-endpoints/accounts
