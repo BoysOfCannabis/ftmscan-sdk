@@ -14,5 +14,3 @@ jobs:
         
       - name: Run isort
         uses: isort/isort-action@v1
-        with:
-          requirements-files: "requirements.txt requirements-test.txt"
