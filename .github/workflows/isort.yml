@@ -1,16 +1,13 @@
 name: Run isort
 on:
-  push:
-    branches:
-      - main
-      - master
+  - push
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        
-      - name: Run isort
-        uses: isort/isort-action@v1
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - uses: isort/isort-action@master
