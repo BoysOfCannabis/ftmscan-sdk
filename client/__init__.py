@@ -20,11 +20,7 @@ class FTMExplorerClient(BaseBlockExplorerClient):
         super().__init__(API_KEY, API_URL)
 
     async def send_request(self, request_payload):
-        url = (
-            self.API_URL
-            + f"?module={request_payload['module']}&action={request_payload['action']}&address={request_payload['address']}&apikey={self.API_KEY}"
-        )
-
+        request_payload["apikey"] = self.API_KEY
         async with aiohttp.ClientSession() as session:
-            async with session.get(url) as response:
+            async with session.get(self.API_URL, params=request_payload) as response:
                 return await response.json()
