@@ -5,7 +5,7 @@ from utils.custom_logger import logger as logging
 
 
 async def main():
-    await get_balance_for_multiple_addresses()
+    await get_erc_20_token_account_balance()
 
 
 async def get_balance_for_single_address():
@@ -28,6 +28,20 @@ async def get_balance_for_multiple_addresses():
 
     results = await asyncio.gather(tasks)
     print("results", results)
+
+
+async def get_erc_20_token_account_balance():
+    account = Account(API_KEY="NPXXZH1CHCB1E8UR41EVYSRMGYUT5VSTI6")
+
+    tasks = asyncio.create_task(
+        account.get_erc_20_token_account_balance_by_contract_address(
+            address="0x431e81E5dfB5A24541b5Ff8762bDEF3f32F96354",
+            contract_address="0x3Fd3A0c85B70754eFc07aC9Ac0cbBDCe664865A6",
+        )
+    )
+
+    results = await asyncio.gather(tasks)
+    print("result", results)
 
 
 if __name__ == "__main__":
