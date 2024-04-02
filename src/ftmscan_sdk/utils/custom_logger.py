@@ -37,21 +37,6 @@ def get_logger():
 
     logger = logging.getLogger(LOGGER_NAME)
 
-    folder_name = "new_folder"
-
-    if not os.path.exists(folder_name):
-        os.makedirs(folder_name)
-        print(f"Folder '{folder_name}' created successfully.")
-    else:
-        print(f"Folder '{folder_name}' already exists.")
-
-    FILENAME = f"logs/{today.month:02d}-{today.day:02d}-{today.year}_{random.randint(1000,9999)}.log"
-
-    file_handler = logging.FileHandler(FILENAME)
-    file_handler.setLevel(logging.INFO)
-    file_handler.setFormatter(CustomFormatter())
-    logger.addHandler(file_handler)
-
     return logger
 
 

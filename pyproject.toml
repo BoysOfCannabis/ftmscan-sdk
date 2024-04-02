@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "ftmscan-sdk"
-version = "0.5.3"
+version = "0.5.4"
 authors = [
   { name="Omid Shahsavarzadeh", email="omidsha@pm.me" },
   { name="Kianoush Mahboob", email="kianoushmhaboob@gmail.com" },
