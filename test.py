@@ -1,7 +1,7 @@
 import asyncio
 
-from modules.account import Account
-from modules.custom_logger import logger as logging
+from modules import Account
+from utils import logger
 
 
 async def main():
@@ -19,7 +19,6 @@ async def main():
         for address in adresses
     ]
     results = await asyncio.gather(*tasks)
-    print(results)
 
 
 if __name__ == "__main__":
