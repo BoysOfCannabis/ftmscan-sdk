@@ -1,15 +1,26 @@
 import asyncio
 
-from module.account import Account
+from modules.account import Account
+from modules.custom_logger import logger as logging
 
 
 async def main():
     account = Account(API_KEY="NPXXZH1CHCB1E8UR41EVYSRMGYUT5VSTI6")
 
-    balance = await account.get_ftm_balance_for_single_address(
-        address="0x9B2Bb6290fb910a960Ec344cDf2ae60ba89647f6"
-    )
-    print("FTM Balance:", balance)
+    adresses = [
+        "0x9B2Bb6290fb910a960Ec344cDf2ae60ba89647f6",
+        "0x9B2Bb6290fb910a960Ec344cDf2ae60ba89647f6",
+        "0x9B2Bb6290fb910a960Ec344cDf2ae60ba89647f6",
+        "0x9B2Bb6290fb910a960Ec344cDf2ae60ba89647f6",
+        "0x9B2Bb6290fb910a960Ec344cDf2ae60ba89647f6",
+    ]
+    tasks = [
+        asyncio.create_task(account.get_ftm_balance_for_single_address(address))
+        for address in adresses
+    ]
+    results = await asyncio.gather(*tasks)
+    print(results)
 
 
-asyncio.run(main())
+if __name__ == "__main__":
+    asyncio.run(main())
