@@ -1,7 +1,7 @@
-from typing import Literal, TypedDict
+from typing import List, Literal, TypedDict
 
 ModuleType = Literal["account", "transaction", "contract"]
-ActionType = Literal["balance"]
+ActionType = Literal["balance", "balancemulti"]
 
 
 class BaseFtmPayloadInterface(TypedDict):
@@ -9,5 +9,5 @@ class BaseFtmPayloadInterface(TypedDict):
     action: ActionType
 
 
-class GetFtmBalanceForSingleAddressInterface(BaseFtmPayloadInterface):
+class GetFtmBalanceAddressInterface(BaseFtmPayloadInterface):
     address: str

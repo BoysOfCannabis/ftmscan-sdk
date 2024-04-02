@@ -1,17 +1,17 @@
-from typing import List
+from typing import Dict, List
 
 from client import FTMExplorerClient
 from utils.custom_logger import logger as logging
 
-from .account_typing import GetFtmBalanceForSingleAddressInterface
+from .account_typing import GetFtmBalanceAddressInterface
 
 
 class Account(FTMExplorerClient):
 
-    async def get_ftm_balance_for_single_address(self, address: str):
+    async def get_ftm_balance_for_single_address(self, address: str) -> Dict:
 
         logging.info(f"try to get ftm balance for {address}")
-        request_payload: GetFtmBalanceForSingleAddressInterface = {
+        request_payload: GetFtmBalanceAddressInterface = {
             "module": "account",
             "action": "balance",
             "address": address,
@@ -22,8 +22,11 @@ class Account(FTMExplorerClient):
 
     async def get_ftm_balance_for_multiple_addresses(self, addresses: List[str]):
         logging.info(f"try to get ftm balances for {addresses}")
-
-    def get_token_balance(self, token_contract: str, address: str):
-        """
-        token_contract example: "0xDE1E704dae0B4051e80DAbB26ab6ad6c12262DA0"
-        """
+        addresses = ",".join(addresses)
+        request_payload: GetFtmBalanceAddressInterface = {
+            "module": "account",
+            "action": "balancemulti",
+            "address": addresses,
+        }
+        response = await self.send_request(request_payload=request_payload)
+        return response

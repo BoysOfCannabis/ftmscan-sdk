@@ -1,3 +1,3 @@
 __all__ = ["Account"]
 
-from account import Account
+from .account import Account
