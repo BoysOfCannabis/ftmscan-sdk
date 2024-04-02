@@ -2,7 +2,6 @@ import abc
 
 import aiohttp
 
-
 class BaseBlockExplorerClient(abc.ABC):
     def __init__(self, API_KEY, API_URL):
         self.API_KEY = API_KEY
@@ -24,3 +23,4 @@ class FTMExplorerClient(BaseBlockExplorerClient):
         async with aiohttp.ClientSession() as session:
             async with session.get(self.API_URL, params=request_payload) as response:
                 return await response.json()
+

@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "ftmscan-sdk"
-version = "0.5.0"
+version = "0.5.3"
 authors = [
   { name="Omid Shahsavarzadeh", email="omidsha@pm.me" },
   { name="Kianoush Mahboob", email="kianoushmhaboob@gmail.com" },
@@ -22,3 +22,4 @@ classifiers = [
 [project.urls]
 Homepage = "https://github.com/BoysOfCannabis/ftmscan-sdk"
 Issues = "https://github.com/BoysOfCannabis/ftmscan-sdk/issues"
+Repository  = "https://github.com/BoysOfCannabis/ftmscan-sdk.git"

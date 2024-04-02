@@ -1,7 +1,7 @@
 from typing import Dict, List
 
-from client import FTMExplorerClient
-from utils import logger as logging
+from ...client import FTMExplorerClient
+from ...utils import logger as logging
 
 from .account_typing import GetFtmBalanceAddressInterface
 

@@ -1,6 +1,7 @@
 import datetime as dt
 import logging
 import random
+import os
 
 today = dt.datetime.today()
 time_format = "%Y-%m-%d %H:%M:%S"
@@ -35,6 +36,14 @@ def get_logger():
     )
 
     logger = logging.getLogger(LOGGER_NAME)
+
+    folder_name = "new_folder"
+
+    if not os.path.exists(folder_name):
+        os.makedirs(folder_name)
+        print(f"Folder '{folder_name}' created successfully.")
+    else:
+        print(f"Folder '{folder_name}' already exists.")
 
     FILENAME = f"logs/{today.month:02d}-{today.day:02d}-{today.year}_{random.randint(1000,9999)}.log"
 
