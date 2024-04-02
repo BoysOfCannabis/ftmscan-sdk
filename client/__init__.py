@@ -2,8 +2,6 @@ import abc
 
 import aiohttp
 
-Address = str
-
 
 class BaseBlockExplorerClient(abc.ABC):
     def __init__(self, API_KEY, API_URL):
